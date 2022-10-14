@@ -1,0 +1,26 @@
+"%%%%%%%%%%%%%% Fichero Aux_vv.mth"
+
+f(x,y):=
+
+"**** Vector gradiente definido con l¡mite para poder ser utilizado en otras ~
+funciones"
+
+vg(x_,y_):=LIM(f'(s,t),[s,t],[x_,y_])
+
+"**** Gradiente en (x_,y_) preparado para dibujar"
+
+gp(x_,y_):=APPEND([[x_,y_]],[[x_,y_]+vg(x_,y_)])
+
+"**** Gradiente en (x_,y_) normalizado preparado para dibujar"
+
+;Sust(Nueva)
+gpn(x_,y_):=APPEND([[x_,y_]],[[x_,y_]+vg(x_,y_)/ABS(vg(x_,y_))])
+
+"**** Funci¢n que proporciona la curva de nivel y el gradiente normalizado en~
+ el punto"
+
+din(a_,b_):=IF(LIM(f'(s_,t_),[s_,t_],[a_,b_])=[0,0],[f(x,y)=f(a_,b_),[a_,b_]]~
+,[f(x,y)=f(a_,b_),gpn(a_,b_)])
+
+"************************* "
+

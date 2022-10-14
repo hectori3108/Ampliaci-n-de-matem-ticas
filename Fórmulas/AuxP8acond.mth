@@ -1,0 +1,50 @@
+"AuxP8acond.mth: Fichero auxiliar para la Pr ctica 8"
+
+"Contiene funciones, matrices y lados derechos de la Pr ctica 8: Acondicionam~
+iento de Sistemas"
+
+"%%%%%%%%%%%%%%%%%%%% Funciones para la pr ctica de acondicionamiento"
+
+modautoval(a):=VECTOR(ABS((EIGENVALUES(a)) SUB i),i,1,DIM(EIGENVALUES(a)))
+
+ro(a):=MAX(modautoval(a))
+
+"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%~
+% Normas matriciales"
+
+normainf(a):=MAX(VECTOR(SUM(ABS(a SUB i SUB j),j,1,DIM(a)),i,1,DIM(a)))
+
+norma1(a):=MAX(VECTOR(SUM(ABS(a SUB i SUB j),i,1,DIM(a)),j,1,DIM(a)))
+
+"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%~
+%%%%%%%%%%%%%%%% Normas vectoriales"
+
+norvec1(v):=SUM(ABS(v SUB j),j,1,DIM(v))
+
+norvecinf(v):=MAX(VECTOR(ABS(v SUB j),j,1,DIM(v)))
+
+"***********************************************************"
+
+"Ejercicio 1: N£mero de condici¢n"
+
+a0:=[[10,7,8,7],[7,5,6,5],[8,6,10,9],[7,5,9,10]]
+
+a1:=[[10,70,8,7],[7,5,6,5],[8,6,10,9],[7,5,9,10]]
+
+"***********************************************************"
+
+"Ejercicio 2: Acondicionamiento"
+
+[a0:=[[10,7,8,7],[7,5,6,5],[8,6,10,9],[7,5,9,10]],b0:=[[32],[23],[33],[31]]]
+
+[a0p:=[[10,7,8.1,7.2],[7.08,5.04,6,5],[8,5.98,9.89,9],[6.98,4.99,9,9.98]],b0p~
+:=[[31.9],[23.1],[32.9],[31.1]]]
+
+"***********************************************************"
+
+"Ejercicio 3: Sistemas de Hilbert"
+
+hilbert(n):=VECTOR(VECTOR(1/(i+j-1),j,1,n),i,1,n)
+
+"***********************************************************"
+
